@@ -1,0 +1,110 @@
+html{
+	overflow-x: hidden; 
+}
+html, 
+body, 
+ul, 
+li,
+p, 
+canvas{
+	margin: 0;
+	padding: 0;
+	font-size: 12px;
+}
+li{
+	list-style: none;
+}
+#container{
+	position: relative;
+	top: 200px;
+	left: 100px;
+	width: 600px;
+}
+#xyshow{
+	display: none;
+	position: absolute;
+	left: 800px;
+	top: 150px;
+	z-index: 4;
+	width: 150px;
+	height: 100px;
+	border-radius: 10px;
+	background: rgba(102, 102, 102, 0.9);
+}
+#xyshow p{
+	margin: 5px auto 0;
+	width: 130px;
+	height: 20px;
+	color: #fff;
+	font-size: 12px;
+}
+
+#line{
+	display: none;
+	position: absolute;
+	top: 0px;
+	left: 300px;
+	bottom: 33px;
+	z-index: 3;
+	width: 2px;
+	background: red;
+}
+#canvas-con{
+	position: relative;
+	float: left;
+	width: 500px;
+	height: 400px;
+}
+#canvas{
+	position: relative;
+	z-index: 3;
+	border: 2px solid #ccc;
+}
+
+#canvas-grid{
+	position: absolute;
+	left: 0px;
+}
+
+#x-line{
+	overflow: hidden;
+	clear: both;
+	position: absolute;
+}
+#x-line li{
+	float: left;
+	padding: 0 5px;
+	height: 30px;
+	line-height: 12px;
+}
+
+#x-line li:nth-of-type(2){
+	margin-left: 82px;
+}
+
+#x-line li:nth-of-type(3){
+	margin-left: 65px;
+}
+
+#x-line li:nth-of-type(4){
+	margin-left: 62px;
+}
+#x-line li:nth-of-type(5),
+#x-line li:nth-of-type(6){
+	margin-left: 20px;
+}
+
+
+
+#y-line{
+	position: relative;
+	float: left;
+
+}
+#y-line li{
+	width: 60px;
+}
+#inside{
+	position: absolute;
+	z-index: 10;
+}
