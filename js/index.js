@@ -39,7 +39,7 @@ window.onload = function () {
    		$("#inside").on('mouseover', function(ev) {
 
 			ev.preventDefault();
-			ConfigCss.showXyShow();
+			ConfigStyle.showXyShow();
 
 		}).on('mousemove', function(ev) {
 
@@ -49,7 +49,7 @@ window.onload = function () {
 		}).on('mouseout', function(ev) {
 
 			ev.preventDefault();
-			ConfigCss.hideXyShow();
+			ConfigStyle.hideXyShow();
 
 		});
 
@@ -58,7 +58,7 @@ window.onload = function () {
 		/*
 			设置横纵坐标
 		*/
-		ConfigCss.setXy();
+		ConfigStyle.setXy();
 
    }());
 
@@ -524,7 +524,7 @@ var Data = (function() {
 })();
 
 
-var ConfigCss = {
+var ConfigStyle = {
 
 	/*
 		设置横纵坐标
