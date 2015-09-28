@@ -3,15 +3,15 @@ window.onload = function () {
 	var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json';
 
 
-       /*
+   	/*
 		画网格
-       */
-         drawGrid();
+   	*/
+     drawGrid();
 
 
-        /*
-    	    画昨日收盘基准线
-       */
+    /*
+	    画昨日收盘基准线
+   	*/
    	yestCloBaseLine();
 
 
@@ -459,7 +459,7 @@ function dataFormats(res){
 
 	var dataFormats = [];
 
-	for( var i = 0; i < res.data.length; i++){
+	for( var i = 0, len = res.data.length; i < len; i++){
 		dataFormats[i] = {
 			time: res.data[i][0].toString(),     //时间
 			volume: Number(res.data[i][3]),   //成交量
