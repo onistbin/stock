@@ -9,10 +9,10 @@ window.onload = function () {
    	/*
 		画网格
    	*/
-    Stock.drawGrid();
+        Stock.drawGrid();
 
 
-    /*
+        /*
 	    画昨日收盘基准线
    	*/
    	Stock.yestCloBaseLine();
