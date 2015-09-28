@@ -1,5 +1,8 @@
 window.onload = function () {
 
+	/*
+		数据接口
+	*/
 	var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json';
 
 
