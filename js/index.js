@@ -3,16 +3,17 @@ window.onload = function () {
 	var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json';
 
 
-	/*
+       /*
 		画网格
-	*/
-    drawGrid();
+       */
+         drawGrid();
 
 
-    /*
-    	画昨日收盘基准线
-    */
+        /*
+    	    画昨日收盘基准线
+       */
    	yestCloBaseLine();
+
 
 	/*
 		drawGraph()描点画曲线
@@ -48,6 +49,8 @@ window.onload = function () {
 			hideXyShow();
 
 		});
+
+
 
 		/*
 			设置横纵坐标
