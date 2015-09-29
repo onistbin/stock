@@ -6,16 +6,16 @@ window.onload = function () {
 	var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json';
 
 
-   	/*
+	/*
 		画网格
    	*/
-        Stock.drawGrid();
+		Stock.drawGrid();
 
 
-        /*
+	/*
 	    画昨日收盘基准线
-   	*/
-   	Stock.yestCloBaseLine();
+	*/
+	Stock.yestCloBaseLine();
 
 
 	/*
@@ -34,9 +34,9 @@ window.onload = function () {
 	/*
 		绑定事件
 	*/
-   	(function(){
+	(function(){
 
-   		$("#inside").on('mouseover', function(ev) {
+		$("#inside").on('mouseover', function(ev) {
 
 			ev.preventDefault();
 			ConfigStyle.showXyShow();
@@ -60,7 +60,7 @@ window.onload = function () {
 		*/
 		ConfigStyle.setXy();
 
-   }());
+	}());
 
 
 }
@@ -472,26 +472,24 @@ var Data = (function() {
 	/*
 		请求成功回调
 	*/
-	var handleData = function (url, callback){
+	var handleData = function (url, callback) {
+
 		$.ajax({
-	        url: url,
-	        dataType: "jsonp",
-	        jsonp: "callback",
-	        success: function(res){
+			url: url,
+			dataType: "jsonp",
+			sonp: "callback",
+			success: function(res){
 	  			
-	  			var data = dataFormats(res);
+				var data = dataFormats(res);
 
-	        	if(callback){
+				if(callback){
 
-	        		callback(data);
+					callback(data);
 
-	        	}
-	        }
-	    });
+				}
+			}
+		});
 	}
-
-
-
 
 	/*
 		数据格式化
@@ -517,8 +515,7 @@ var Data = (function() {
 	}
 
 	return{
-		handleData: handleData,
-		dataFormats: dataFormats
+		handleData: handleData
 	}
 
 })();
