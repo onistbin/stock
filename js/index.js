@@ -582,54 +582,54 @@ var Move = Class.createClass();
 
 Move.prototype = {
 
-    init: function(idCon, idLine) {
+	init: function(idCon, idLine) {
 
-    	this.container = document.getElementById('container');
-	    this.moveTgt = document.getElementById(idCon);
-	    this.line = document.getElementById(idLine);
-	    this.canvas = document.getElementsByTagName('canvas')[0];
-	    this.disX = 0;
-    },
+		this.container = document.getElementById('container');
+		this.moveTgt = document.getElementById(idCon);
+		this.line = document.getElementById(idLine);
+		this.canvas = document.getElementsByTagName('canvas')[0];
+		this.disX = 0;
+	},
 
     /*
         鼠标移入canvas，绑定事件	
     */
-    fnMove: function(ev){
+	fnMove: function(ev){
 
-        var _this = this;
+		var _this = this;
 
-        var marginLeft = 50;
+		var marginLeft = 50;
 
-        document.onmousemove = function(ev) {
+		document.onmousemove = function(ev) {
 
-        	/*
-        		设置显示坐标盒子的位置
-        	*/
-            _this.moveTgt.style.left = ev.clientX - _this.disX - _this.container.offsetLeft + marginLeft + 'px';
+		/*
+			设置显示坐标盒子的位置
+		*/
+			_this.moveTgt.style.left = ev.clientX - _this.disX - _this.container.offsetLeft + marginLeft + 'px';
 
-            /*
-        		设置竖线的位置	
-        	*/
-            _this.line.style.left = ev.clientX - _this.disX - _this.container.offsetLeft + 'px';
+		/*
+			设置竖线的位置	
+		*/
+			_this.line.style.left = ev.clientX - _this.disX - _this.container.offsetLeft + 'px';
 
-            _this.fnRemove();
-        }
-    },
+			_this.fnRemove();
+		}
+},
 
-    /*
-        鼠标移出canvas，消除绑定事件	
-    */
-    fnRemove: function() {
+	/*
+	        鼠标移出canvas，消除绑定事件	
+	*/
+	fnRemove: function() {
 
-    	var _this = this;
+		var _this = this;
 
-    	this.canvas.onmouseout = function () {
+		this.canvas.onmouseout = function () {
 
-    		document.onmousemove = null;
+			document.onmousemove = null;
 
-    		_this.moveTgt.style.display = 'none';
-    		_this.line.style.display = 'none';	
+			_this.moveTgt.style.display = 'none';
+			_this.line.style.display = 'none';	
   
-	}   
-    }
+		}   
+	}
 }
