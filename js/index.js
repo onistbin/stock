@@ -591,7 +591,7 @@ Move.prototype = {
 		this.disX = 0;
 	},
 
-    /*
+	/*
         鼠标移入canvas，绑定事件	
     */
 	fnMove: function(ev){
@@ -617,7 +617,7 @@ Move.prototype = {
 },
 
 	/*
-	        鼠标移出canvas，消除绑定事件	
+		鼠标移出canvas，消除绑定事件	
 	*/
 	fnRemove: function() {
 
