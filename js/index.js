@@ -13,7 +13,7 @@ window.onload = function () {
 
 
 	/*
-	    画昨日收盘基准线
+		画昨日收盘基准线
 	*/
 	Stock.yestCloBaseLine();
 
@@ -84,7 +84,7 @@ var Stock = (function () {
 	*/
 	var drawGrid = function () {
 
-		var canvasLine = document.getElementById('canvas-grid'),
+		var 	canvasLine = document.getElementById('canvas-grid'),
 			canvasLineWidth = canvasLine.offsetWidth,
 			canvasLineHeight = canvasLine.offsetHeight,
 			gridHeight = $(canvasLine).height() / 8,    //网格高度
@@ -138,9 +138,9 @@ var Stock = (function () {
 
 	function drawGraph(data) {
 
-		var stockData = data.dataFormats;
-		var gridHeight = $("#canvas-grid").height() / 8;
-		var canvas = document.getElementById('canvas'),
+		var	stockData = data.dataFormats,
+			gridHeight = $("#canvas-grid").height() / 8,
+			canvas = document.getElementById('canvas'),
 			priceIncrene = document.getElementById('y-line'),
 			priceIncre = priceIncrene.getElementsByTagName('li');
 
@@ -169,7 +169,7 @@ var Stock = (function () {
 			设置时间轴和当前价的位置
 		*/
 
-		var canvasHeight = $('#canvas').height(),
+		var	canvasHeight = $('#canvas').height(),
 			yMarginTop = $('#canvas').height() - $("#y-line").height(),
 			yMarginTop = $('#canvas').height() - $("#y-line").height();
 			
@@ -194,7 +194,7 @@ var Stock = (function () {
 			画曲线
 		*/
 
-		var stsrtX = 0,
+		var	stsrtX = 0,
 			startY = 0,  
 			     x = 0, 
 			     y = 0; 
@@ -310,7 +310,7 @@ var Stock = (function () {
 	*/
 	function draw(option) {
 
-		var canvas = document.getElementById(option.canvasid),
+		var	canvas = document.getElementById(option.canvasid),
 			cxt = canvas.getContext('2d'),
 			canvasHeight = $(canvas).height();
 
@@ -352,13 +352,13 @@ var Stock = (function () {
 
 		var moveTgt = new Move('xyshow', 'line');
 
-			moveTgt.fnMove();
-			moveTgt.fnRemove();
+		moveTgt.fnMove();
+		moveTgt.fnRemove();
 	   
 
 
 	    var	xyShow = document.getElementById('xyshow'),
-			showSpan = xyShow.getElementsByTagName('span');
+		showSpan = xyShow.getElementsByTagName('span');
 
 	    var yestClosePrice = data.yestclose;
 
@@ -430,7 +430,7 @@ var Stock = (function () {
 
 	var pollRequest = function (data) {
 
-		var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json',
+		var	url = 'http://img1.money.126.net/data/hs/time/today/0000001.json',
 			stockData = data.dataFormats,
 			dataLen = stockData.length,
 			canvas = document.getElementById("canvas"),
