@@ -9,7 +9,7 @@ window.onload = function () {
 	/*
 		画网格
    	*/
-		Stock.drawGrid();
+	Stock.drawGrid();
 
 
 	/*
@@ -34,7 +34,7 @@ window.onload = function () {
 	/*
 		绑定事件
 	*/
-	(function(){
+	(function() {
 
 		$("#inside").on('mouseover', function(ev) {
 
@@ -82,7 +82,7 @@ var Stock = (function () {
 	/*
 		绘制网格
 	*/
-	var drawGrid = function (){
+	var drawGrid = function () {
 
 		var canvasLine = document.getElementById('canvas-grid'),
 			canvasLineWidth = canvasLine.offsetWidth,
@@ -95,7 +95,7 @@ var Stock = (function () {
 			画网格横线
 		*/
 
-		for( var i = 0, len = canvasLineHeight / gridHeight; i <= len; i++){
+		for( var i = 0, len = canvasLineHeight / gridHeight; i <= len; i++) {
 
 			p = canvasLineHeight - i * gridHeight;
 
@@ -115,7 +115,7 @@ var Stock = (function () {
 			画网格竖线
 		*/
 
-		for( var i = 0, len = canvasLineWidth / gridWidth; i <= len; i++){
+		for( var i = 0, len = canvasLineWidth / gridWidth; i <= len; i++) {
 
 			p =  i * gridWidth;
 
@@ -136,7 +136,7 @@ var Stock = (function () {
 		绘制曲线
 	*/
 
-	function drawGraph(data){
+	function drawGraph(data) {
 
 		var stockData = data.dataFormats;
 		var gridHeight = $("#canvas-grid").height() / 8;
@@ -178,12 +178,12 @@ var Stock = (function () {
 		*/
 
 
-		for( var len = 4, i = len; i >= 0 ; i --){
+		for( var len = 4, i = len; i >= 0 ; i --) {
 
 			priceIncre[i].innerHTML = (Number(data.yestclose) + Number(everyRange * (len - i))).toFixed(3);
 		}
 
-		for( var i = 5; i <= 8 ; i ++){
+		for( var i = 5; i <= 8 ; i ++) {
 
 			priceIncre[i].innerHTML = (Number(data.yestclose) - Number(everyRange * (i - 4))).toFixed(3);
 		}
@@ -213,9 +213,9 @@ var Stock = (function () {
 
 		var countFrame = 0;
 		var time = 6;
-		var timer = setInterval(function(){
+		var timer = setInterval(function() {
 
-			if(yestCloBaseLine){
+			if(yestCloBaseLine) {
 
 				var increLen = (stockData[countFrame].current - priceMin) * gridHeight;
 
@@ -237,13 +237,13 @@ var Stock = (function () {
 				draw(Curves);
 
 
-				if(countFrame >= stockData.length - 1){
+				if(countFrame >= stockData.length - 1) {
 					var canvas = document.getElementById("canvas"),
 					cxt = canvas.getContext('2d');
 
 					clearInterval(timer);
 				}
-				else{
+				else {
 
 					countFrame++;
 
@@ -262,6 +262,7 @@ var Stock = (function () {
 				startY = y;
 				
 			}
+
 		}, time);
 		
 	}
@@ -271,13 +272,13 @@ var Stock = (function () {
 		画昨日收盘基准线
 	*/
 
-	var yestCloBaseLine = function (){
+	var yestCloBaseLine = function () {
 
 		var baselineCountY = 0,
 			baselineX = 0,
 			flag = false;
 
-		var timerBase = setInterval(function(){
+		var timerBase = setInterval(function() {
 
 			var option = {
 				startX: 0,
@@ -290,7 +291,7 @@ var Stock = (function () {
 			};
 
 
-			if( baselineX > $("#canvas").width()){
+			if( baselineX > $("#canvas").width()) {
 
 				clearInterval(timerBase);
 				flag = true;
@@ -307,7 +308,7 @@ var Stock = (function () {
 	/*
 		draw(画线方法)
 	*/
-	function draw(option){
+	function draw(option) {
 
 		var canvas = document.getElementById(option.canvasid),
 			cxt = canvas.getContext('2d'),
@@ -338,7 +339,7 @@ var Stock = (function () {
 
 
 
-	var getShow = function (data){
+	var getShow = function (data) {
 
 		var stockData = data.dataFormats;
 
@@ -368,7 +369,7 @@ var Stock = (function () {
 	    var index = parseInt(($("#line").offset().left - $("#canvas").offset().left) / 2);
 
 
-	    try{
+	    try {
 	   
 			priceAverage = index > 3 ? (stockData[index - 1].current + stockData[index - 2].current + stockData[index - 3].current) / 3 : stockData[index].current;
 		
@@ -379,7 +380,7 @@ var Stock = (function () {
 			showSpan[2].innerHTML = stockData[index].current;
 			showSpan[3].innerHTML = stockData[index].time.substring(0, 2) + ':' + stockData[index].time.substring(2);  
 
-	    }catch(err){
+	    } catch(err) {
 
 	    	console.log("");
 	   	}
@@ -391,7 +392,7 @@ var Stock = (function () {
 		得到两个数中绝对值较大的
 	*/
 
-	var getAbsMax = function (a, b){
+	var getAbsMax = function (a, b) {
 
 		var maxabs  = Math.abs(a) > Math.abs(b) ? Math.abs(a) : Math.abs(b);
 
@@ -404,11 +405,11 @@ var Stock = (function () {
 		得到数据中的最大值和最小值
 	*/
 
-	var getMinMax = function (data){
+	var getMinMax = function (data) {
 
 		var dataArr = [];
 
-		for( var i = 0; i < data.length; i ++){
+		for( var i = 0; i < data.length; i ++) {
 
 			dataArr[i] = data[i].current;
 		}
@@ -427,7 +428,7 @@ var Stock = (function () {
 		轮询请求
 	*/
 
-	var pollRequest = function (data){
+	var pollRequest = function (data) {
 
 		var url = 'http://img1.money.126.net/data/hs/time/today/0000001.json',
 			stockData = data.dataFormats,
@@ -436,9 +437,9 @@ var Stock = (function () {
 			cxt = canvas.getContext('2d');
 
 
-		var reloadTimer = setInterval(function(){
+		var reloadTimer = setInterval(function() {
 
-			if(dataLen > 0 && dataLen < data.dataLenMax){
+			if(dataLen > 0 && dataLen < data.dataLenMax) {
 
 				cxt.clearRect(0, 0, $(canvas).width(), $(canvas).height());
 				handleData(url, drawGraph);
@@ -478,7 +479,7 @@ var Data = (function() {
 			url: url,
 			dataType: "jsonp",
 			sonp: "callback",
-			success: function(res){
+			success: function(res) {
 	  			
 				var data = dataFormats(res);
 
@@ -498,8 +499,9 @@ var Data = (function() {
 
 		var dataFormats = [];
 
-		for( var i = 0, len = res.data.length; i < len; i++){
+		for( var i = 0, len = res.data.length; i < len; i++) {
 			dataFormats[i] = {
+
 				time: res.data[i][0].toString(),     //时间
 				volume: Number(res.data[i][3]),   //成交量
 				current: Number(res.data[i][1]),  //当前价
@@ -515,6 +517,7 @@ var Data = (function() {
 	}
 
 	return{
+
 		handleData: handleData
 	}
 
@@ -526,7 +529,7 @@ var ConfigStyle = {
 	/*
 		设置横纵坐标
 	*/
-	setXy: function (){
+	setXy: function () {
 
 		$("#x-line").css({
 			"left": $("#y-line").width() - 20,
@@ -543,12 +546,12 @@ var ConfigStyle = {
 	/*
 		显示隐藏显示信息
 	*/
-	hideXyShow: function (){
+	hideXyShow: function () {
 
 		$("#line, #xyshow").hide();
 	},
 
-	showXyShow: function (){
+	showXyShow: function () {
 
 		$("#line").css({
 			"height": $("#canvas").height()
@@ -561,7 +564,7 @@ var ConfigStyle = {
 		配置显示的横纵坐标大小,canvas容器的大小
 	*/
 
-	configXy: function (){
+	configXy: function () { 
 
 		$("#canvas-con").css({
 			"width": $("#canvas-grid").width(),
@@ -579,7 +582,7 @@ var Move = Class.createClass();
 
 Move.prototype = {
 
-    init: function(idCon, idLine){
+    init: function(idCon, idLine) {
 
     	this.container = document.getElementById('container');
 	    this.moveTgt = document.getElementById(idCon);
@@ -597,7 +600,7 @@ Move.prototype = {
 
         var marginLeft = 50;
 
-        document.onmousemove = function(ev){
+        document.onmousemove = function(ev) {
 
         	/*
         		设置显示坐标盒子的位置
@@ -616,7 +619,7 @@ Move.prototype = {
     /*
         鼠标移出canvas，消除绑定事件	
     */
-    fnRemove: function(){
+    fnRemove: function() {
 
     	var _this = this;
 
