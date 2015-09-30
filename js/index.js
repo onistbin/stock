@@ -630,6 +630,6 @@ Move.prototype = {
     		_this.moveTgt.style.display = 'none';
     		_this.line.style.display = 'none';	
   
-		}   
+	}   
     }
 }
