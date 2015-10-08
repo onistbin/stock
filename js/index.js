@@ -136,7 +136,7 @@ var Stock = (function () {
 		绘制曲线
 	*/
 
-	function drawGraph(data) {
+	var drawGraph = function(data) {
 
 		var stockData = data.dataFormats;
 		var gridHeight = $("#canvas-grid").height() / 8;
@@ -308,7 +308,7 @@ var Stock = (function () {
 	/*
 		draw(画线方法)
 	*/
-	function draw(option) {
+	var draw = function (option) {
 
 		var canvas = document.getElementById(option.canvasid),
 			cxt = canvas.getContext('2d'),
