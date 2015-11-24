@@ -442,7 +442,7 @@ var Stock = (function () {
 			if(dataLen > 0 && dataLen < data.dataLenMax) {
 
 				cxt.clearRect(0, 0, $(canvas).width(), $(canvas).height());
-				handleData(url, drawGraph);
+				Data.handleData(url, drawGraph);
 				yestCloBaseLine();
 			}
 		
