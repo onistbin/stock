@@ -473,25 +473,33 @@ var Data = (function() {
 	/*
 		请求成功回调
 	*/
-	var handleData = function (url, callback) {
+	
+	var flag = true;
+	var renderDataArr = null;
+	function handleData(url, callback) {
 
-		$.ajax({
-			url: url,
-			dataType: "jsonp",
-			sonp: "callback",
-			success: function(res) {
-	  			
-				var data = dataFormats(res);
+		//第一次请求数据，后边轮询请求又设置为true;
+		if(flag) {
+			$.ajax({
+		        url: url,
+		        dataType: "jsonp",
+		        jsonp: "callback",
+		        success: function(res) {
+		  			
+		  		flag = false;
+		  		var data = dataFormats(res);
 
-				if(callback){
-
-					callback(data);
-
-				}
-			}
-		});
+		        	if(callback){
+		        		renderDataArr = data;
+		        		//console.log(renderDataArr);
+		        		callback(data);
+		        	}
+		        }
+		    });
+		} else {
+			callback(renderDataArr)
+		}
 	}
-
 	/*
 		数据格式化
 	*/
